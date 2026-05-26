@@ -37,7 +37,7 @@ Open http://localhost:3000, connect your wallet (MetaMask / WalletConnect), and 
 | Agent Identity | ERC-8004 | ✅ simulated | ✅ `registerAgent()` |
 | Job Escrow | ERC-8183 | ✅ simulated | ✅ `createJob()` |
 | Proof Receipt | x402 receipt | ✅ in-memory | ✅ DB + IPFS |
-| Wallet Connect | Reown AppKit | ✅ real | ✅ real |
+|| Wallet Connect | wagmi injected / MetaMask | ✅ real | ✅ real |
 
 ---
 

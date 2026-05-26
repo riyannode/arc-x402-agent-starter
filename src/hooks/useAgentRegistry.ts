@@ -10,7 +10,7 @@
  * Supports demo mode (no real TX) when contract env vars are empty.
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useArcWrite } from './useArcWrite';
 import { useX402Pay } from './useX402Pay';
 import { addReceipt, generateTxHash } from '@/lib/receipt';
@@ -106,11 +106,13 @@ export function useAgentRegistry(): UseAgentRegistryReturn {
   );
 
   // Detect confirmation from contract write
-  if (isConfirmed && step === 'registering' && txHash) {
-    setAgentId(`from-event-${txHash.slice(0, 10)}`);
-    setStep('registered');
-    setProgress('Agent registered on-chain!');
-  }
+  useEffect(() => {
+    if (isConfirmed && step === 'registering' && txHash) {
+      setAgentId(`from-event-${txHash.slice(0, 10)}`);
+      setStep('registered');
+      setProgress('Agent registered on-chain!');
+    }
+  }, [isConfirmed, step, txHash]);
 
   const reset = useCallback(() => {
     setStep('idle');

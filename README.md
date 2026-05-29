@@ -41,9 +41,7 @@ Open http://localhost:3000, connect your wallet (MetaMask / WalletConnect), and 
 
 ---
 
-## How This Differs from `circlefin/arc-*` Examples
-
-The official `circlefin/arc-*` repos (arc-commerce, arc-nanopayments, etc.) are protocol-level examples that demonstrate individual primitives in isolation.
+## How This Differs.
 
 This starter is **builder-oriented**:
 

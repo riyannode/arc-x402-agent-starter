@@ -35,7 +35,7 @@ Open http://localhost:3000, connect your wallet (MetaMask / WalletConnect), and 
 |-----------|----------|------|-----------|
 | Pay-per-call | x402 / EIP-3009 | ✅ simulated settlement | ✅ Circle Gateway |
 | Agent Identity | ERC-8004 | ✅ simulated | ✅ `registerAgent()` |
-| Job Escrow | ERC-8183 | ✅ simulated | ✅ `createJob()` |
+| Job Escrow | ERC-8183 | ✅ simulated | ✅ Full lifecycle: `createJob` → `setBudget` → `approve` → `fund` → `submit` → `complete` |
 | Proof Receipt | x402 receipt | ✅ in-memory | ✅ DB + IPFS |
 || Wallet Connect | wagmi injected / MetaMask | ✅ real | ✅ real |
 
@@ -106,7 +106,7 @@ src/
 │   └── page.tsx           ← Homepage with all UI cards
 ├── components/            ← React components
 ├── hooks/                 ← Custom hooks (wallet, x402, agents, jobs)
-└── lib/                   ← Core logic (wagmi, x402, ABIs, receipts)
+└── lib/                   ← Core logic (wagmi, x402, ABIs, lifecycle builders, receipts)
 ```
 
 See `docs/ARCHITECTURE.md` for detailed design.
@@ -135,6 +135,7 @@ See `docs/PRODUCTION_HARDENING.md` for the full checklist.
 | [X402_FLOW.md](docs/X402_FLOW.md) | EIP-3009 payment flow, challenge/response |
 | [AGENT_FLOW.md](docs/AGENT_FLOW.md) | ERC-8004 agent registration lifecycle |
 | [JOB_FLOW.md](docs/JOB_FLOW.md) | ERC-8183 job creation and lifecycle |
+| [PITFALLS.md](docs/PITFALLS.md) | Real bugs & gotchas (evaluator, BigInt, decimals, gas) |
 | [PROOF_RECEIPTS.md](docs/PROOF_RECEIPTS.md) | Receipt data model, verification |
 | [SESSION_KEYS.md](docs/SESSION_KEYS.md) | Session keys: planned, not yet implemented |
 | [PRODUCTION_HARDENING.md](docs/PRODUCTION_HARDENING.md) | Production readiness checklist |

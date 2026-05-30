@@ -22,7 +22,7 @@ pnpm dev
 
 Open http://localhost:3000, connect your wallet (MetaMask / WalletConnect), and try:
 
-1. **Unlock protected resource** — pay 0.000001 USDC via x402
+1. **Unlock protected resource** — pay USDC via x402
 2. **Register an agent** — pay gate fee, then "register" (demo mode)
 3. **Create a job** — fill in provider/evaluator/description, pay gate fee
 4. **View receipts** — see all your payment + interaction history

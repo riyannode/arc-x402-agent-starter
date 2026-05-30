@@ -1,0 +1,29 @@
+{
+  "schema": "arclayer.agent/v1",
+  "version": "0.1.0",
+  "name": "Example External Agent",
+  "description": "A minimal external agent runtime demonstrating Arc x402 integration.",
+  "endpoint": "http://localhost:4000",
+  "owner": "example-builder",
+  "mode": "seller",
+  "categories": ["ai", "example"],
+  "capabilities": ["text-processing", "data-analysis"],
+  "roles": ["provider"],
+  "x402": {
+    "scheme": "exact",
+    "network": "arc:testnet",
+    "asset": "0x3600000000000000000000000000000000000000",
+    "payTo": "0xYOUR_RECEIVER_ADDRESS",
+    "maxTimeoutSeconds": 600
+  },
+  "jobs": {
+    "enabled": true,
+    "contract": "0x0747EEf0706327138c69792bF28Cd525089e4583",
+    "steps": ["createJob", "setBudget", "approve", "fund", "submit", "complete"]
+  },
+  "proof": {
+    "enabled": true,
+    "hashAlgorithm": "keccak256",
+    "store": "memory"
+  }
+}
